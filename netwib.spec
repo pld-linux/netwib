@@ -1,13 +1,13 @@
 Summary:	Network library, for network administrators and network hackers
 Summary(pl):	Biblioteka sieciowa dla administratorów i hackerów
 Name:		netwib
-Version:	5.3.0
+Version:	5.12.0
 Release:	1
 Epoch:		0
 License:	LGPL
 Group:		Libraries
 Source0:	http://www.laurentconstantin.com/common/netw/netwib/download/v5/%{name}-%{version}-src.tgz
-# Source0-md5:	41fa06b69fe7bd059b380c5e3531ed1d
+# Source0-md5:	fbc54d0bf68ad92974e31c650345e862
 URL:		http://www.laurentconstantin.com/en/netw/netwib/
 BuildRequires:	libnet-devel >= 1.0
 BuildRequires:	libpcap-devel
