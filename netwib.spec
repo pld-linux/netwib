@@ -49,7 +49,7 @@ Static netwib library.
 
 %build
 cd src
-%define         base_arch %(echo %{_target_cpu} | sed 's/i.86/i386/;s/athlon/i386/')
+%define         base_arch %(echo %{_target_cpu} | sed 's/i.86/i386/;s/athlon/i386/;s/ppc/powerpc/')
 sed -i -e 's#NETWIBDEF_SYSARCH=i386#NETWIBDEF_SYSARCH=%{base_arch}#g' config.dat
 sed -i -e 's#/bin/ip#/sbin/ip#g' netwib/net/priv/conf/conflinux.c
 ./genemake
