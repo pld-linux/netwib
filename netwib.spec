@@ -1,14 +1,15 @@
 Summary:	Network library, for network administrators and network hackers
 Summary(pl):	Biblioteka sieciowa dla administratorów i hackerów
 Name:		netwib
-Version:	5.30.0
+Version:	5.33.0
 Release:	1
 Epoch:		0
 License:	LGPL
 Group:		Libraries
 Source0:	http://www.laurentconstantin.com/common/netw/netwib/download/v5/%{name}-%{version}-src.tgz
-# Source0-md5:	dcd41f26fc8a0ea381c48940c072ef61
+# Source0-md5:	adfc432c98961b5e8893ef2e572e40a0
 URL:		http://www.laurentconstantin.com/en/netw/netwib/
+Patch0:		%{name}-config.patch
 BuildRequires:	libnet-devel >= 1.0
 BuildRequires:	libpcap-devel
 BuildRequires:	sed >= 4.0
@@ -75,13 +76,14 @@ Statyczna biblioteka netwib.
 
 %prep
 %setup -q -n %{name}-%{version}-src
+%patch0 -p1
 
 %build
 cd src
 %define         base_arch %(echo %{_target_cpu} | sed 's/i.86/i386/;s/athlon/i386/;s/ppc/powerpc/')
 sed -i -e 's#NETWIBDEF_SYSARCH=i386#NETWIBDEF_SYSARCH=%{base_arch}#g' config.dat
 sed -i -e 's#/bin/ip#/sbin/ip#g' netwib/net/priv/conf/conflinux.c
-./genemake
+./genemake 
 sed -i -e 's#444#644#' -e 's#555#755#g' Makefile
 %{__make} libnetwib.so libnetwib.a \
 	CC="%{__cc}" \
@@ -89,16 +91,30 @@ sed -i -e 's#444#644#' -e 's#555#755#g' Makefile
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_libdir},%{_mandir}/man{1,3}}
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_libdir},%{_mandir}/man3}
 
-cd src
-%{__make} installall \
+%{__make} -C src installall \
 	INSTINCLUDE=$RPM_BUILD_ROOT%{_includedir} \
 	INSTLIB=$RPM_BUILD_ROOT%{_libdir} \
 	INSTBIN=$RPM_BUILD_ROOT%{_bindir} \
-	INSTMAN1=$RPM_BUILD_ROOT%{_mandir}/man1 \
 	INSTMAN3=$RPM_BUILD_ROOT%{_mandir}/man3 \
 	INSTUSERGROUP="$(id -u):$(id -g)"
+
+rm -f $RPM_BUILD_ROOT%{_mandir}/man3/netwib.3
+echo ".so netwib533.3" > $RPM_BUILD_ROOT%{_mandir}/man3/netwib.3
+rm -f $RPM_BUILD_ROOT%{_mandir}/man3/netwib_dat.3
+echo ".so netwib533_dat.3" > $RPM_BUILD_ROOT%{_mandir}/man3/netwib_dat.3
+rm -f $RPM_BUILD_ROOT%{_mandir}/man3/netwib_err.3
+echo ".so netwib533_err.3" > $RPM_BUILD_ROOT%{_mandir}/man3/netwib_err.3
+rm -f $RPM_BUILD_ROOT%{_mandir}/man3/netwib_net.3
+echo ".so netwib533_net.3" > $RPM_BUILD_ROOT%{_mandir}/man3/netwib_net.3
+rm -f $RPM_BUILD_ROOT%{_mandir}/man3/netwib_pkt.3
+echo ".so netwib533_pkt.3" > $RPM_BUILD_ROOT%{_mandir}/man3/netwib_pkt.3
+rm -f $RPM_BUILD_ROOT%{_mandir}/man3/netwib_shw.3
+echo ".so netwib533_shw.3" > $RPM_BUILD_ROOT%{_mandir}/man3/netwib_shw.3
+rm -f $RPM_BUILD_ROOT%{_mandir}/man3/netwib_sys.3
+echo ".so netwib533_sys.3" > $RPM_BUILD_ROOT%{_mandir}/man3/netwib_sys.3
+
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -115,7 +131,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/*
 %{_includedir}/*
-%{_mandir}/man?/*
+%{_mandir}/man3/*
 
 %files static
 %defattr(644,root,root,755)
