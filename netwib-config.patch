@@ -1,0 +1,11 @@
+--- netwib-5.33.0-src./src/config.dat	2006-01-29 11:50:19.000000000 +0100
++++ netwib-5.33.0-src/src/config.dat	2006-01-29 17:48:07.000000000 +0100
+@@ -7,7 +7,7 @@
+ 
+ ##########################################################################
+ ### directories where netwib will be installed
+-NETWIBDEF_INSTPREFIX=/usr/local
++NETWIBDEF_INSTPREFIX=/usr
+ NETWIBDEF_INSTINCLUDE=${NETWIBDEF_INSTPREFIX}/include
+ NETWIBDEF_INSTLIB=${NETWIBDEF_INSTPREFIX}/lib
+ NETWIBDEF_INSTBIN=${NETWIBDEF_INSTPREFIX}/bin
