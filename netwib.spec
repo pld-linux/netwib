@@ -1,7 +1,8 @@
 Summary:	Network library, for network administrators and network hackers
 Summary(pl):	Biblioteka sieciowa dla administratorów i hackerów
 Name:		netwib
-Version:	5.34.0
+%define		_base_version	5.34
+Version:	%{_base_version}.0
 Release:	1
 Epoch:		0
 License:	LGPL
@@ -14,6 +15,8 @@ BuildRequires:	libnet-devel >= 1.0
 BuildRequires:	libpcap-devel
 BuildRequires:	sed >= 4.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%define		_man_suffix	%(echo %{_base_version} | tr -d . )
 
 %description
 Netwib is a network library, for network administrators and network
@@ -101,20 +104,19 @@ install -d $RPM_BUILD_ROOT{%{_bindir},%{_libdir},%{_mandir}/man3}
 	INSTUSERGROUP="$(id -u):$(id -g)"
 
 rm -f $RPM_BUILD_ROOT%{_mandir}/man3/netwib.3
-echo ".so netwib533.3" > $RPM_BUILD_ROOT%{_mandir}/man3/netwib.3
+echo ".so netwib%{_man_suffix}.3" > $RPM_BUILD_ROOT%{_mandir}/man3/netwib.3
 rm -f $RPM_BUILD_ROOT%{_mandir}/man3/netwib_dat.3
-echo ".so netwib533_dat.3" > $RPM_BUILD_ROOT%{_mandir}/man3/netwib_dat.3
+echo ".so netwib%{_man_suffix}_dat.3" > $RPM_BUILD_ROOT%{_mandir}/man3/netwib_dat.3
 rm -f $RPM_BUILD_ROOT%{_mandir}/man3/netwib_err.3
-echo ".so netwib533_err.3" > $RPM_BUILD_ROOT%{_mandir}/man3/netwib_err.3
+echo ".so netwib%{_man_suffix}_err.3" > $RPM_BUILD_ROOT%{_mandir}/man3/netwib_err.3
 rm -f $RPM_BUILD_ROOT%{_mandir}/man3/netwib_net.3
-echo ".so netwib533_net.3" > $RPM_BUILD_ROOT%{_mandir}/man3/netwib_net.3
+echo ".so netwib%{_man_suffix}_net.3" > $RPM_BUILD_ROOT%{_mandir}/man3/netwib_net.3
 rm -f $RPM_BUILD_ROOT%{_mandir}/man3/netwib_pkt.3
-echo ".so netwib533_pkt.3" > $RPM_BUILD_ROOT%{_mandir}/man3/netwib_pkt.3
+echo ".so netwib%{_man_suffix}_pkt.3" > $RPM_BUILD_ROOT%{_mandir}/man3/netwib_pkt.3
 rm -f $RPM_BUILD_ROOT%{_mandir}/man3/netwib_shw.3
-echo ".so netwib533_shw.3" > $RPM_BUILD_ROOT%{_mandir}/man3/netwib_shw.3
+echo ".so netwib%{_man_suffix}_shw.3" > $RPM_BUILD_ROOT%{_mandir}/man3/netwib_shw.3
 rm -f $RPM_BUILD_ROOT%{_mandir}/man3/netwib_sys.3
-echo ".so netwib533_sys.3" > $RPM_BUILD_ROOT%{_mandir}/man3/netwib_sys.3
-
+echo ".so netwib%{_man_suffix}_sys.3" > $RPM_BUILD_ROOT%{_mandir}/man3/netwib_sys.3
 
 %clean
 rm -rf $RPM_BUILD_ROOT
