@@ -1,5 +1,5 @@
 Summary:	Network library, for network administrators and network hackers
-Summary(pl):	Biblioteka sieciowa dla administratorów i hackerów
+Summary(pl.UTF-8):   Biblioteka sieciowa dla administratorÃ³w i hackerÃ³w
 Name:		netwib
 %define		_base_version	5.34
 Version:	%{_base_version}.0
@@ -35,46 +35,46 @@ hackers. It provides :
     + etc.
 Using all these functions, a network program can be quickly created.
 
-%description -l pl
-Netwib to biblioteka sieciowa przeznaczona dla administratorów sieci i
-sieciowych hackerów. Zapewnia:
- - funkcjonalno¶æ zwi±zan± z sieci±:
-   - konwersjê adresów
-   - obs³ugê klientów/serwerów udp/tcp
-   - kodowanie/dekodowanie/wy¶wietlanie pakietów
+%description -l pl.UTF-8
+Netwib to biblioteka sieciowa przeznaczona dla administratorÃ³w sieci i
+sieciowych hackerÃ³w. Zapewnia:
+ - funkcjonalnoÅ›Ä‡ zwiÄ…zanÄ… z sieciÄ…:
+   - konwersjÄ™ adresÃ³w
+   - obsÅ‚ugÄ™ klientÃ³w/serwerÃ³w udp/tcp
+   - kodowanie/dekodowanie/wyÅ›wietlanie pakietÃ³w
    - spoofowanie
    - sniffowanie
    - itp.
- - oraz ogóln± funkcjonalno¶æ:
-   - konwersjê danych
+ - oraz ogÃ³lnÄ… funkcjonalnoÅ›Ä‡:
+   - konwersjÄ™ danych
    - listy i hashe
-   - przeno¶ne w±tki
+   - przenoÅ›ne wÄ…tki
    - itp.
-Przy u¿yciu tych wszystkich funkcji mo¿na szybko tworzyæ oprogramowanie
+Przy uÅ¼yciu tych wszystkich funkcji moÅ¼na szybko tworzyÄ‡ oprogramowanie
 sieciowe.
 
 %package devel
 Summary:	Header files and development documentation for netwib
-Summary(pl):	Pliki nag³ówkowe i dokumentacja programisty dla netwib
+Summary(pl.UTF-8):   Pliki nagÅ‚Ã³wkowe i dokumentacja programisty dla netwib
 Group:		Development/Libraries
 Requires:	%{name} = %{epoch}:%{version}
 
 %description devel
 Header files and development documentation for netwib.
 
-%description devel -l pl
-Pliki nag³ówkowe i dokumentacja programisty dla netwib.
+%description devel -l pl.UTF-8
+Pliki nagÅ‚Ã³wkowe i dokumentacja programisty dla netwib.
 
 %package static
 Summary:	Static netwib library
-Summary(pl):	Statyczna biblioteka netwib
+Summary(pl.UTF-8):   Statyczna biblioteka netwib
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{epoch}:%{version}
 
 %description static
 Static netwib library.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Statyczna biblioteka netwib.
 
 %prep
