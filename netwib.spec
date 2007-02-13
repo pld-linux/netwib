@@ -1,5 +1,5 @@
 Summary:	Network library, for network administrators and network hackers
-Summary(pl.UTF-8):   Biblioteka sieciowa dla administratorów i hackerów
+Summary(pl.UTF-8):	Biblioteka sieciowa dla administratorów i hackerów
 Name:		netwib
 %define		_base_version	5.34
 Version:	%{_base_version}.0
@@ -55,7 +55,7 @@ sieciowe.
 
 %package devel
 Summary:	Header files and development documentation for netwib
-Summary(pl.UTF-8):   Pliki nagłówkowe i dokumentacja programisty dla netwib
+Summary(pl.UTF-8):	Pliki nagłówkowe i dokumentacja programisty dla netwib
 Group:		Development/Libraries
 Requires:	%{name} = %{epoch}:%{version}
 
@@ -67,7 +67,7 @@ Pliki nagłówkowe i dokumentacja programisty dla netwib.
 
 %package static
 Summary:	Static netwib library
-Summary(pl.UTF-8):   Statyczna biblioteka netwib
+Summary(pl.UTF-8):	Statyczna biblioteka netwib
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{epoch}:%{version}
 
